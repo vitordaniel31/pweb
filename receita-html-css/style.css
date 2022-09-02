@@ -1,0 +1,20 @@
+p.verso {
+   color: blue;
+}  
+
+.mote {
+   color: red;
+}  
+
+a:visited { 
+   color: purple;
+}
+
+a:hover {
+   color: green;
+}
+
+.poeta,
+.poeta img {
+   border-radius: 50%;  
+}
