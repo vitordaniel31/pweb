@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>   
+   <head>
+      <meta charset="UTF-8">      
+   </head>
+   <body>
+      <div id="meu amor">
+         Carregando cervejas...
+      </div>
+      <div>
+         <button id="botao" onclick="carregarDiv()">Clique</button>
+      </div>  
+      <h3><a href="q2.html">Questão 2</a></h3>         
+      <h3><a href="q3.html">Questão 3</a></h3>         
+   </body>   
+   <script type="text/javascript">
+      function carregarDiv(){
+         let div = document.getElementById("meu amor");
+         div.innerHTML = `<h1>Guinness</h1>`;
+      }
+   </script>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>   
+   <head>
+      <meta charset="UTF-8">      
+   </head>
+   <body>
+      <div id="meu amor"></div>
+      <div>
+         <button id="botao" onclick="carregarDiv()">Acender</button>
+      </div>        
+      <h3><a href="q1.html">Questão 1</a></h3>         
+      <h3><a href="q3.html">Questão 3</a></h3>       
+   </body>   
+   <script type="text/javascript">
+      function carregarDiv(){
+         let div = document.getElementById("meu amor");
+         if(div.innerHTML=='') {
+            div.innerHTML = `<h1>Guinness</h1>`;
+            document.getElementById('botao').innerHTML = 'Apagar';
+         } else {
+            div.innerHTML = null;  
+            document.getElementById('botao').innerHTML = 'Acender';          
+         }
+      }
+   </script>
+
+</html>
