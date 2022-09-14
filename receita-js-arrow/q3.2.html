@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">    
+      <style type="text/css">
+         .roupas{
+            color: red;
+         }
+
+         #botaoCarregar {
+            cursor: pointer;
+            display: block;
+            width: 160px;
+            height: 40px;
+            line-height: 40px;
+            padding: 10px 5px;
+            margin: 20px;
+            background-color: grey;
+            color: #FFF;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+         }
+      </style>   
+   </head>
+   <body>
+      <a id="botaoCarregar">Carregando roupas...</a>
+      <div id="meu amor"></div> 
+
+      <h3><a href="q3.html">Questão 3</a></h3> 
+      <h3><a href="q3.2.html">Questão 3.2</a></h3>         
+      <h3><a href="q3.3.html">Questão 3.3</a></h3>         
+      <h3><a href="q3.4.html">Questão 3.4</a></h3>         
+      <h3><a href="q3.5.html">Questão 3.5</a></h3>         
+   </body>   
+   <script type="text/javascript">
+      let roupas = ["Calça", "Blusa", "Camisa"];
+
+      const carregarDiv = () => {
+         const div = document.getElementById("meu amor");
+         const roupasHtml = roupas.map(item => `<div class="roupas">${item}</h1>`) ;
+         div.innerHTML = `${roupasHtml.join("\n")}`;
+      }  
+
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", carregarDiv);
+   </script>
+
+</html>

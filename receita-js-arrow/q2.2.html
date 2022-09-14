@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">    
+      <style type="text/css">
+         .roupas{
+            color: red;
+         }
+      </style>   
+   </head>
+   <body>
+      <button id="botaoCarregar">Carregando roupas...</button>
+      <div id="meu amor"></div> 
+
+      <h3><a href="q2.html">Questão 2</a></h3> 
+      <h3><a href="q2.2.html">Questão 2.2</a></h3>         
+      <h3><a href="q2.3.html">Questão 2.3</a></h3>         
+      <h3><a href="q2.4.html">Questão 2.4</a></h3>         
+      <h3><a href="q2.5.html">Questão 2.5</a></h3>         
+   </body>   
+   <script type="text/javascript">
+      let roupas = ["Calça", "Blusa", "Camisa"];
+
+      const carregarDiv = () => {
+         const div = document.getElementById("meu amor");
+         const roupasHtml = roupas.map(item => `<div class="roupas">${item}</h1>`) ;
+         div.innerHTML = `${roupasHtml.join("\n")}`;
+      }  
+
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", carregarDiv);
+   </script>
+
+</html>

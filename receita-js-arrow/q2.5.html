@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">     
+      <style type="text/css">
+         #roupas {
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+         }
+
+         #roupas td, #roupas th {
+            border: 1px solid #ddd;
+            padding: 8px;
+         }
+
+         #roupas tr:nth-child(even){background-color: #f2f2f2;}
+
+         #roupas tr:hover {background-color: #ddd;}
+
+         #roupas th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #F07D00;
+            color: white;
+         }
+      
+      </style> 
+   </head>
+   <body>
+      <table id="roupas">
+         <thead>
+           <tr>
+             <th>Nome</th>
+           </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+      <button id="botaoCarregar">Carregando roupas embaralhadas...</button>
+      <div id="meu amor"></div> 
+
+      <h3><a href="q2.html">Questão 2</a></h3> 
+      <h3><a href="q2.1.html">Questão 2.1</a></h3>         
+      <h3><a href="q2.2.html">Questão 2.2</a></h3>         
+      <h3><a href="q2.3.html">Questão 2.3</a></h3>         
+      <h3><a href="q2.4.html">Questão 2.4</a></h3>         
+   </body>   
+   <script type="text/javascript">
+      let roupas = ["Calça", "Blusa", "Camisa"];
+
+      const carregarDiv = () => {
+         document.getElementById('roupas').style.display = 'block';
+         let tbody = document.querySelector("#roupas tbody");
+         roupas.sort(() => Math.random() - 0.5);
+         const roupasHtml = roupas.map(item => `<tr><td>${item}</td></tr>`) ;
+         tbody.innerHTML = `${roupasHtml.join("\n")}`;
+      }  
+      
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", carregarDiv);
+   </script>
+
+</html>
