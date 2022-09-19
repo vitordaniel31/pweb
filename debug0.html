@@ -19,7 +19,7 @@
       let numeros = []
       
       const gerarVetor = (quantidade=5, valorMaximo=10) => {
-         return Array.from(new Array(quantidade), x => Math.floor(Math.random()*valorMaximo))   
+         return Array.from({length:quantidade}, () => Math.floor(Math.random()*valorMaximo))   
       }
 
       const carregarDiv1 = objs => {
