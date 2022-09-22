@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">     
+      <style type="text/css">
+         #cervejas {
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+         }
+
+         #cervejas td, #cervejas th {
+            border: 1px solid #ddd;
+            padding: 8px;
+         }
+
+         #cervejas tr:nth-child(even){background-color: #f2f2f2;}
+
+         #cervejas tr:hover {background-color: #ddd;}
+
+         #cervejas th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #F07D00;
+            color: white;
+         }
+      
+      </style> 
+   </head>
+   <body>
+      <table id="cervejas">
+         <thead>
+           <tr>
+             <th>Nome</th>
+             <th>Álcool</th>
+             <th>Style</th>
+             <th>Ibu</th>
+           </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+      <button id="botaoCarregar">Carregando cervejas...</button>
+
+      <h3><a href="q1.html">Questão 1</a></h3>         
+      <h3><a href="q2.html">Questão 2</a></h3>         
+      <h3><a href="q3.html">Questão 3</a></h3>         
+      <h3><a href="q4.html">Questão 4</a></h3>         
+      <h3><a href="q6.html">Questão 6</a></h3>             
+   </body>   
+   <script type="text/javascript">
+
+      let cervejas = [
+         {
+            name: "Guiness", 
+            alcohol: "10%",
+            style: "Red Ale",
+            ibu: "15"           
+         }, 
+         {
+            name: "Desperados",
+            alcohol: "6%",
+            style: "English IPA",
+            ibu: "20"                     
+         }, 
+         {
+            name: "Becks",
+            alcohol: "5%",
+            style: "Imperial Stout",
+            ibu: "50"                     
+         }
+      ];
+      //cs é um array de cervejas
+      const carregarDiv = (cs, idDiv = 'cervejasDiv', th1 = 'Nome', th2 = 'Álcool', th3 = 'Estilo', th4 = 'Amargor', ) => {
+         document.getElementById(idDiv).style.display = 'block';
+         let thead = document.querySelector(`#${idDiv} thead`);
+         thead.innerHTML = `
+            <tr>
+             <th>${th1}</th>
+             <th>${th2}</th>
+             <th>${th3}</th>
+             <th>${th4}</th>
+           </tr>
+         `;         
+         let tbody = document.querySelector(`#${idDiv} tbody`);
+         const itensHtml = cs.map( ({name,alcohol,style,ibu}) => `
+            <tr>
+               <td>${name}</td>
+               <td>${alcohol}</td>
+               <td>${style}</td>
+               <td>${ibu}</td>
+            </tr>` ); 
+         tbody.innerHTML = `${itensHtml.join("\n")}`;
+      }
+
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", () => carregarDiv(cervejas, 'cervejas'));    
+   </script>
+
+</html>
