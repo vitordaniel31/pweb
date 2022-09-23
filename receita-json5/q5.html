@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">     
+      <style type="text/css">
+         #cervejas {
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+         }
+
+         #cervejas td, #cervejas th {
+            border: 1px solid #ddd;
+            padding: 8px;
+         }
+
+         #cervejas tr:nth-child(even){background-color: #f2f2f2;}
+
+         #cervejas tr:hover {background-color: #ddd;}
+
+         #cervejas th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #F07D00;
+            color: white;
+         }
+      
+      </style> 
+   </head>
+   <body>
+      <label>Escolha a quantidade a ser gerada:</label>
+      <select onchange="carregarCervejas(this.value)">
+         <option selected disabled>Escolha a quantidade a ser gerada</option>
+         <option value="3">3</option>
+         <option value="5">5</option>
+         <option value="10">10</option>
+         <option value="25">25</option>
+         <option value="50">50</option>
+         <option value="100">100</option>
+      </select>
+      <table id="cervejas">
+         <thead>
+           <tr>
+             <th>Id</th>
+             <th>UId</th>
+             <th>Brand</th>
+             <th>Name</th>
+             <th>Style</th>
+             <th>Hop</th>
+             <th>Yeast</th>
+             <th>Malts</th>
+             <th>Ibu</th>
+             <th>Alcohol</th>
+             <th>BLG</th>
+           </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+
+      <h3><a href="q1.html">Questão 1</a></h3>         
+      <h3><a href="q2.html">Questão 2</a></h3>         
+      <h3><a href="q3.html">Questão 3</a></h3>         
+      <h3><a href="q4.html">Questão 4</a></h3>         
+      <h3><a href="q6.html">Questão 6</a></h3>      
+   </body>   
+   <script type="text/javascript">
+
+      let cervejas = []
+
+      //cs é um array de cervejas
+      const carregarDiv = cs => {
+         document.getElementById('cervejas').style.display = 'block';
+         let tbody = document.querySelector("#cervejas tbody");
+         const itensHtml = cs.map( item => 
+         `<tr>
+            <td>${item.id}</td>
+            <td>${item.uid}</td>
+            <td>${item.brand}</td>
+            <td>${item.name}</td>
+            <td>${item.style}</td>
+            <td>${item.hop}</td>
+            <td>${item.yeast}</td>
+            <td>${item.malts}</td>
+            <td>${item.ibu}</td>
+            <td>${item.alcohol}</td>
+            <td>${item.blg}</td>
+         </tr>` ); 
+         tbody.innerHTML = `${itensHtml.join("\n")}`;
+      }
+
+      async function carregarCervejas(quantidade){
+         let res = await fetch(`https://random-data-api.com/api/v2/beers?size=${quantidade}`)
+
+         cervejas = await res.json()
+
+         carregarDiv(cervejas)
+
+      }
+ 
+   </script>
+
+</html>

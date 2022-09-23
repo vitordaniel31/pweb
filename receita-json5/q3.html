@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">     
+      <style type="text/css">
+         #users {
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+         }
+
+         #users td, #users th {
+            border: 1px solid #ddd;
+            padding: 8px;
+         }
+
+         #users tr:nth-child(even){background-color: #f2f2f2;}
+
+         #users tr:hover {background-color: #ddd;}
+
+         #users th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #F07D00;
+            color: white;
+         }
+      
+      </style> 
+   </head>
+   <body>
+      <table id="users">
+         <thead>
+           <tr>
+             <th>Id</th>
+             <th>Name</th>
+           </tr>
+         </thead>
+         <tbody>
+         </tbody>
+      </table>
+      <button id="botaoCarregar">Carregando users...</button>
+
+      <h3><a href="q1.html">Questão 1</a></h3>         
+      <h3><a href="q2.html">Questão 2</a></h3>         
+      <h3><a href="q4.html">Questão 4</a></h3>         
+      <h3><a href="q5.html">Questão 5</a></h3>                
+      <h3><a href="q6.html">Questão 6</a></h3>      
+   </body>   
+   <script type="text/javascript">
+
+      let users = []
+
+      //cs é um array de users
+      const carregarDiv = cs => {
+         document.getElementById('users').style.display = 'block';
+         let tbody = document.querySelector("#users tbody");
+         const itensHtml = cs.map( ({id,first_name}) => 
+         `<tr>
+            <td>${id}</td>
+            <td>${first_name}</td>
+         </tr>` ); 
+         tbody.innerHTML = `${itensHtml.join("\n")}`;
+      }
+
+      async function carregarusers(){
+
+         let res = await fetch("https://random-data-api.com/api/v2/users?size=3")
+
+         users = await res.json()
+
+         carregarDiv(users)
+
+      }
+
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", () => carregarusers());    
+   </script>
+
+</html>
