@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+      <meta charset="UTF-8">     
+      <style type="text/css">
+         #cervejas {
+            display: none;
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+         }
+
+         #cervejas td, #cervejas th {
+            border: 1px solid #ddd;
+            padding: 8px;
+         }
+
+         #cervejas tr:nth-child(even){background-color: #f2f2f2;}
+
+         #cervejas tr:hover {background-color: #ddd;}
+
+         #cervejas th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #F07D00;
+            color: white;
+         }
+      
+      </style> 
+   </head>
+   <body>
+      <div id="cervejasDiv">
+         <table id="cervejas">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Name</th>
+                <th>Style</th>
+                <th>Ibu</th>
+                <th>Alcohol</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+         </table>
+      </div>
+      <button id="botaoCarregar">Carregando cervejas...</button>
+
+      <h3><a href="q2.html">Questão 2</a></h3>         
+      <h3><a href="q3.html">Questão 3</a></h3>         
+      <h3><a href="q4.html">Questão 4</a></h3>         
+      <h3><a href="q5.html">Questão 5</a></h3>                
+      <h3><a href="q6.html">Questão 6</a></h3>      
+   </body>   
+   <script type="text/javascript">
+      //cs é um array de cervejas
+      const carregarDiv = cs => {
+         document.getElementById('cervejas').style.display = 'block';
+         let tbody = document.querySelector("#cervejas tbody");
+         const itensHtml = cs.map( item => 
+         `<tr>
+            <td>${item.id}</td>
+            <td>${item.brand}</td>
+            <td>${item.name}</td>
+            <td>${item.style}</td>
+            <td>${item.ibu}</td>
+            <td>${item.alcohol}</td>
+         </tr>` ); 
+         tbody.innerHTML = `${itensHtml.join("\n")}`;
+      }
+
+      const carregarCervejas = () => {
+         fetch("https://random-data-api.com/api/v2/beers?size=3").then(
+            res => res.json()
+         ).then(carregarDiv)
+         .catch(() => {
+            document.getElementById('cervejas').style.display = 'block';
+            let tbody = document.querySelector("#cervejas tbody");
+            tbody.innerHTML = 
+            `<tr>
+               <td colspan="6" align="center">Falha na requisição</td>
+            </tr>`; 
+         });
+      }
+
+      let botao = document.getElementById("botaoCarregar");
+      botao.addEventListener("click", () => carregarCervejas());    
+   </script>
+
+</html>
