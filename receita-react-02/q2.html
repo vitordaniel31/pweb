@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>ReceitaReact - 2</title>      
+   </head>
+   <body>
+      <div id="app"></div>
+      <script src="libs/react.js"></script>
+      <script src="libs/react-dom.js"></script>
+      <script src="libs/babel.js"></script>
+      <script type="text/babel">
+         class TabelaBebidas extends React.Component{
+            render(){
+               return (
+                  <div>
+                     <h2>{this.props.titulo}</h2>
+                     <table id="tabela" border="1">
+                        <thead>
+                           <tr><th>Nome</th><th>Marca</th></tr>
+                        </thead>
+                        <tbody>
+                           <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                        </tbody>
+                     </table>
+                  </div> 
+               )
+            }
+         }
+
+         class Header extends React.Component{
+            render(){
+               return (
+                  <header>
+                     <h1>{this.props.header}</h1>
+                  </header> 
+               )
+            }
+         }
+
+         class Footer extends React.Component{
+            render(){
+               return (
+                  <p>
+                     <span>Copyright 2022 - Viadagem</span>
+                  </p> 
+               )
+            }
+         }
+
+         const TabelaBebidas___ = () => {
+            return (
+               <div>
+                  <h1>Tabela de Bebidas</h1>
+                  <table id="tabela" border="1">
+                     <thead>
+                        <tr><th>Nome</th><th>Marca</th></tr>
+                     </thead>
+                     <tbody>
+                        <tr><td>Havana</td><td>Engenho Anísio Santiago</td></tr>
+                     </tbody>
+                  </table>
+               </div>
+            )  
+         }
+
+         ReactDOM.render(
+            <div>
+               <Header header="Sistema de Cachaceiros"/>
+               <TabelaBebidas titulo="Tabela de Cana"/>
+               <Footer/>
+            </div>
+            ,
+            document.getElementById("app")
+         )
+      </script>
+   </body>
+</html>
