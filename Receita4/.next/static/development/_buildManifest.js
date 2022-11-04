@@ -1,0 +1,1 @@
+self.__BUILD_MANIFEST = {__rewrites:{beforeFiles:[],afterFiles:[],fallback:[]},"/_error":["static\u002Fchunks\u002Fpages\u002F_error.js"],"/movies2/[imdbID]":["static\u002Fchunks\u002Fpages\u002Fmovies2\u002F[imdbID].js"],sortedPages:["\u002F_app","\u002F_error","\u002Fmovies2\u002F[imdbID]"]};self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
