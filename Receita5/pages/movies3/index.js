@@ -18,7 +18,7 @@ export default function Movies3(){
 
         e.preventDefault()
 
-        if (url === '') setUrl('http://www.omdbapi.com/?apikey=9b30f837&s=bagdad')
+        if (url === '') setUrl('https://www.omdbapi.com/?apikey=9b30f837&s=bagdad')
 
         else setUrl('')
 

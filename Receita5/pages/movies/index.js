@@ -2,7 +2,7 @@ import useSWR from 'swr'
 
 export default function Movies(){
 
-    const {data, error} = useSWR(`http://www.omdbapi.com/?apikey=9b30f837&s=bagdad`, fetcher)    
+    const {data, error} = useSWR(`https://www.omdbapi.com/?apikey=9b30f837&s=bagdad`, fetcher)    
 
     if (error) return <div>falha na requisição...</div>
 
