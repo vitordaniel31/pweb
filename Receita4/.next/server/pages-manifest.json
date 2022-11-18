@@ -2,5 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/movies2/[imdbID]": "pages/movies2/[imdbID].js"
+  "/": "pages/index.js",
+  "/movies": "pages/movies.js",
+  "/movies/[imdbID]": "pages/movies/[imdbID].js"
 }
