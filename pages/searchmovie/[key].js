@@ -9,7 +9,7 @@ export default function Movie(){
     const router = useRouter();
     const { key } = router.query;
 
-    const {data, error} = useSWR("http://www.omdbapi.com/?apikey=9b30f837&s=" + key, fetcher);    
+    const {data, error} = useSWR("https://www.omdbapi.com/?apikey=9b30f837&s=" + key, fetcher);    
 
     return (
         <div>
