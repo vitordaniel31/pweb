@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 
 import {useState} from 'react'
-import { Table, Input, Space  } from 'antd';
+import { Table, Input, Space, Typography, Spin  } from 'antd';
 import 'antd/dist/antd.css'; 
 import { useRouter } from 'next/router';
 
@@ -39,9 +39,15 @@ async function theFetcher(url) {
 export function TheMovies({data,show}){
     if (!show) return (<div></div>);    
 
-    if (data.error) return (<div>falha na requisição</div>);
+    if (data.Error) {
+        return (
+            <Error error={data.Error}/>
+        )
+    }
 
-    if (data.Search === '' ) return (<div>carregando...</div>);
+    if (data.Search === '' ) {
+        return <Spin/>
+    }
 
     let dados = data.Search.map((m) => {
         return { 
@@ -98,4 +104,12 @@ export function TheLink({url, handler}){
 export function GoBack() {
     const router = useRouter();
     return (<a onClick={() => router.back()}>Voltar</a>);
+}
+
+export function Error({error}) {
+    return (
+        <Typography.Title level={1} style={{ margin: 10 }}>
+            {error}
+        </Typography.Title>
+    )
 }

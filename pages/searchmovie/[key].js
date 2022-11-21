@@ -1,9 +1,9 @@
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
 
-import { Table } from 'antd';
+import { Spin, Table, Typography } from 'antd';
 import 'antd/dist/antd.css'; 
-import { GoBack } from '..';
+import { Error, GoBack } from '..';
     
 export default function Movie(){
     const router = useRouter();
@@ -21,12 +21,19 @@ export default function Movie(){
 export function TheMovies({data}){
     const router = useRouter();
 
-    if (data.Error) return <div>falha na requisição...</div>
+    if (data.Error) {
+        return (
+            <>
+                <Error error={data.Error}/>
+                <GoBack/>
+            </>
+        )
+    }
 
-    if (!data) return <div>carregando...</div>
+    if (!data || data.Search === '') {
+        return <Spin/>
+    }
 
-    if (data.Search === '' ) return (<div>carregando...</div>);
-    
     let dados = Array.isArray(data.Search) ? data.Search.map( (m) => {
             return { 
                 ...m,

@@ -1,9 +1,8 @@
 import useSWR from 'swr'
 
 import { useRouter } from 'next/router'
-import { GoBack } from '..';
-import { Typography } from 'antd';
-import Paragraph from 'antd/lib/skeleton/Paragraph';
+import { Error, GoBack } from '..';
+import { Spin, Typography } from 'antd';
 
 export default function Movies(){
     const router = useRouter();
@@ -11,9 +10,18 @@ export default function Movies(){
 
     const {data, error} = useSWR("https://www.omdbapi.com/?apikey=9b30f837&i=" + imdbID, fetcher);    
 
-    if (error) return <div>falha na requisição...</div>;
+    if (error) {
+        return (
+            <>
+                <Error error={error}/>
+                <GoBack/>
+            </>
+        )
+    }
 
-    if (!data) return <div>carregando...</div>;
+    if (!data || data.Search === '') {
+        return <Spin/>
+    }
 
     return (
         <div style={{marginTop: "20px"}}>
