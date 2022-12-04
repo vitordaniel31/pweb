@@ -10,7 +10,7 @@ export default function Index(){
     const [state, setState] = useState({url: '', titleSearchString: '', yearSearchString: ''});
     const [validate, setValidate] = useState({message: ''});
     const {data, error} = useSWR(`${state.url}/?apiKey=9b30f837&&s=${state.titleSearchString}&y=${state.yearSearchString}`, async (url) => {
-        if (!state.url || !state.titleSearchString || state.url === '' || state.titleSearchString === '') {
+        if (!state.url || !state.titleSearchString || state.url === '' ||   state.titleSearchString === '') {
             return {Search:''};  
         }
 
