@@ -28,7 +28,7 @@ export default function Index(){
                 setValidate({message: 'O campo de pesquisa é obrigatório.'});
             } else {    
                 setState({
-                    url: 'http://www.omdbapi.com', 
+                    url: 'https://www.omdbapi.com', 
                     titleSearchString: search,
                     yearSearchString: year
                 });

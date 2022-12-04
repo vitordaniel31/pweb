@@ -38,7 +38,7 @@ export default function Index(){
 
     onClickSort = (dataIndex) => {
         setState({
-            url: 'http://www.omdbapi.com', 
+            url: 'https://www.omdbapi.com', 
             titleSearchString: state.titleSearchString, 
             orderBy: {index: dataIndex, order: state.orderBy.order === 'ASC' ? 'DESC' : 'ASC'}
         });
@@ -55,7 +55,7 @@ export default function Index(){
                 setValidate({message: 'O campo de pesquisa é obrigatório.'});
             } else if (type === 'search'){    
                 setState({
-                    url: 'http://www.omdbapi.com', 
+                    url: 'https://www.omdbapi.com', 
                     titleSearchString: search,
                     orderBy: state.orderBy
                 });
@@ -63,7 +63,7 @@ export default function Index(){
             } else if (type === 'show'){
                 if (state.url === '') {
                     setState({
-                        url: 'http://www.omdbapi.com', 
+                        url: 'https://www.omdbapi.com', 
                         titleSearchString: state.titleSearchString,
                         orderBy: state.orderBy
                     });

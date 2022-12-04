@@ -26,7 +26,7 @@ export default function Index(){
             if (search === '') {
                 setValidate({message: 'Preencha o campo de pesquisa'});
             } else {    
-                setState({url: 'http://www.omdbapi.com', titleSearchString: search});
+                setState({url: 'https://www.omdbapi.com', titleSearchString: search});
                 setValidate({message: ''});
             }
         }

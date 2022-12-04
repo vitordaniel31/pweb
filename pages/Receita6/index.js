@@ -38,7 +38,7 @@ export default function Index(){
 
     onClickSort = (dataIndex) => {
         setState({
-            url: 'http://www.omdbapi.com', 
+            url: 'https://www.omdbapi.com', 
             titleSearchString: state.titleSearchString, 
             orderBy: {index: dataIndex, order: state.orderBy.order === 'ASC' ? 'DESC' : 'ASC'}
         });
@@ -55,7 +55,7 @@ export default function Index(){
         } else {
             if (state.url === '') {
                 setState({
-                    url: 'http://www.omdbapi.com', 
+                    url: 'https://www.omdbapi.com', 
                     titleSearchString: search,
                     orderBy: state.orderBy
                 });
